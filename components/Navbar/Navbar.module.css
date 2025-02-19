@@ -1,0 +1,30 @@
+.navTrigger {
+    cursor: pointer;
+    width: 33.33px;
+    height: 25px;
+    position: relative;
+    z-index: 1000;
+}
+
+.navTrigger i {
+    background-color: #fff;
+    border-radius: 2px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    transition: all 0.4s ease;
+}
+
+.activeBurgerMenu i:first-child {
+    transform: translateY(-1.75px) rotate(135deg);
+}
+
+.activeBurgerMenu i:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.activeBurgerMenu i:last-child {
+    transform: translateY(-8px) rotate(-135deg);
+}

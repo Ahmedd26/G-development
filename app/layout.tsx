@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import Navbar from "@/components/Navbar";
 
 const helveticaNow = localFont({
     src: [
@@ -29,11 +30,6 @@ const helveticaNow = localFont({
             weight: "500",
             style: "normal",
         },
-        // {
-        //     path: "../public/fonts/helvetica-now/HelveticaNowDisplay-MedIta.woff2",
-        //     weight: "600",
-        //     style: "normal",
-        // },
         {
             path: "../public/fonts/helvetica-now/HelveticaNowDisplay-Bold.woff2",
             weight: "700",
@@ -68,7 +64,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${helveticaNow.variable} antialiased`}>
-                {children}
+                {/* <Navbar />
+                {children} */}
+                <Navbar />
+                <div className="h-[10000px] max-w-container mx-auto">
+                    {children}
+                </div>
             </body>
         </html>
     );
