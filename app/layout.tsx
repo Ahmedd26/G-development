@@ -67,9 +67,7 @@ export default function RootLayout({
                 {/* <Navbar />
                 {children} */}
                 <Navbar />
-                <div className="h-[10000px] max-w-container mx-auto">
-                    {children}
-                </div>
+                <main className="">{children}</main>
             </body>
         </html>
     );
