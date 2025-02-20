@@ -1,4 +1,6 @@
+"use client";
 import Carousel from "@/components/ui/Carousel/Carousel";
+import CarouselCard from "@/components/ui/Carousel/CarouselCard";
 import person1 from "@/public/images/person-1.png";
 import person2 from "@/public/images/person-2.png";
 import person3 from "@/public/images/person-3.png";
@@ -30,7 +32,13 @@ const data = [
 export default function OurLeaders() {
   return (
     <div className="mx-auto max-w-container px-4">
-      <Carousel data={data} />
+      {/* <Carousel data={data} /> */}
+      <Carousel
+        data={data}
+        renderItem={(item) => (
+          <CarouselCard image={item.image} name={item.name} role={item.role} />
+        )}
+      />
     </div>
   );
 }

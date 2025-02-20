@@ -1,17 +1,17 @@
 "use client";
-import CarouselCard from "@/components/ui/Carousel/CarouselCard";
 import CarouselNavigator from "@/components/ui/Carousel/CarouselNavigator";
 import CarouselProgressBar from "@/components/ui/Carousel/CarouselProgressBar";
-import { StaticImageData } from "next/image";
 import { useRef, useState } from "react";
 
-interface CarouselProps {
-  data: { image: StaticImageData; name: string; role: string }[];
+interface CarouselProps<T> {
+  data: T[];
+  renderItem: (item: T) => React.ReactNode;
 }
 
-export default function Carousel({ data }: CarouselProps) {
+export default function Carousel<T>({ data, renderItem }: CarouselProps<T>) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [currentItem, setCurrentItem] = useState(1);
+
   const nextItem = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: 200, behavior: "smooth" });
@@ -30,26 +30,26 @@ export default function Carousel({ data }: CarouselProps) {
 
   return (
     <div className="relative py-10">
-      <CarouselNavigator nextItem={nextItem} previousItem={previousItem} />
+      <CarouselNavigator
+        className="hidden sm:flex"
+        nextItem={nextItem}
+        previousItem={previousItem}
+      />
       <div
         ref={carouselRef}
-        className="scrollbar-hide flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth"
+        className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth scrollbar-hide"
       >
-        {data.map((item) => (
+        {data.map((item, index) => (
           <div
-            key={item.name}
+            key={index}
             className="w-auto shrink-0 snap-center sm:snap-start"
           >
-            <CarouselCard
-              image={item.image}
-              name={item.name}
-              role={item.role}
-            />
+            {renderItem(item)}
           </div>
         ))}
       </div>
       <CarouselProgressBar
-        className="lg:mt-12"
+        className="mt-12"
         currentItem={currentItem}
         totalItems={data.length}
       />

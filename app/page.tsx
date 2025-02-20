@@ -1,3 +1,4 @@
+import DiscoverOurLatestSection from "@/components/sections/DiscoverOurLatestSection";
 import HeroSection from "@/components/sections/HeroSection";
 import LeadershipSection from "@/components/sections/LeadershipSection";
 import OurApproachSection from "@/components/sections/OurApproachSection";
@@ -14,6 +15,9 @@ export default function page() {
       <LeadershipSection />
       <OurLeaders />
       <OurApproachSection />
+      <div className="bg-[#F6F6F6]">
+        <DiscoverOurLatestSection />
+      </div>
     </>
   );
 }
