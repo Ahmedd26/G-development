@@ -1,4 +1,5 @@
 import DiscoverOurLatestSection from "@/components/sections/DiscoverOurLatestSection";
+import GetInTouchSection from "@/components/sections/GetInTouchSection";
 import HeroSection from "@/components/sections/HeroSection";
 import LeadershipSection from "@/components/sections/LeadershipSection";
 import OurApproachSection from "@/components/sections/OurApproachSection";
@@ -17,6 +18,9 @@ export default function page() {
       <OurApproachSection />
       <div className="bg-[#F6F6F6]">
         <DiscoverOurLatestSection />
+      </div>
+      <div className="bg-[#EAEAEA]">
+        <GetInTouchSection />
       </div>
     </>
   );
