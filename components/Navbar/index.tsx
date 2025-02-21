@@ -22,7 +22,7 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-container px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-16">
           {/* Logo */}
           <div className="sm:flex-1">
             <Logo />
