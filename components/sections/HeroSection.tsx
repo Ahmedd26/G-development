@@ -2,7 +2,10 @@ import Image from "next/image";
 import heroImg from "@/public/hero-image.png";
 export default function HeroSection() {
   return (
-    <header className="relative min-h-dvh shadow-inner shadow-black">
+    <header
+      id="hero-section"
+      className="relative min-h-dvh shadow-inner shadow-black"
+    >
       <Image
         src={heroImg}
         fill
