@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const helveticaNow = localFont({
   src: [
@@ -68,6 +69,7 @@ export default function RootLayout({
                 {children} */}
         <Navbar />
         <main className="overflow-y-hidden">{children}</main>
+        <Footer />
       </body>
     </html>
   );
