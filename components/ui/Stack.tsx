@@ -3,9 +3,10 @@ import React, { PropsWithChildren } from "react";
 
 type StackProps = PropsWithChildren<{
   className?: TailwindClass;
+  ref?: React.RefObject<HTMLDivElement | null>;
 }>;
 
-export default function Stack({ children, className = "" }: StackProps) {
+export default function Stack({ children, ref, className = "" }: StackProps) {
   // Ensure exactly two children are passed
   const childrenArray = React.Children.toArray(children);
   if (childrenArray.length > 2) {
@@ -14,6 +15,7 @@ export default function Stack({ children, className = "" }: StackProps) {
 
   return (
     <div
+      ref={ref}
       className={`grid grid-rows-[auto_1fr] justify-between gap-6 md:grid-cols-2 md:grid-rows-1 ${className}`}
     >
       {/* Render the first and second children separately, gives the flexibility of styling each child individually */}

@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 
 interface CarouselProps<T> {
   data: T[];
-  renderItem: (item: T) => React.ReactNode;
+  renderItem: (item: T, index: number) => React.ReactNode;
 }
 
 export default function Carousel<T>({ data, renderItem }: CarouselProps<T>) {
@@ -44,7 +44,7 @@ export default function Carousel<T>({ data, renderItem }: CarouselProps<T>) {
             key={index}
             className="w-auto shrink-0 snap-center sm:snap-start"
           >
-            {renderItem(item)}
+            {renderItem(item, index)}
           </div>
         ))}
       </div>

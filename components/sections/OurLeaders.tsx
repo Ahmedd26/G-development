@@ -32,11 +32,15 @@ const data = [
 export default function OurLeaders() {
   return (
     <div className="mx-auto max-w-container px-4">
-      {/* <Carousel data={data} /> */}
       <Carousel
         data={data}
-        renderItem={(item) => (
-          <CarouselCard image={item.image} name={item.name} role={item.role} />
+        renderItem={(item, index) => (
+          <CarouselCard
+            image={item.image}
+            name={item.name}
+            role={item.role}
+            delay={index * 0.5}
+          />
         )}
       />
     </div>

@@ -1,4 +1,11 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Image, { StaticImageData } from "next/image";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface CarouselDiscoverCardProps {
   image: StaticImageData;
@@ -15,8 +22,27 @@ export default function CarouselDiscoverCard({
   title,
   content,
 }: CarouselDiscoverCardProps) {
+  const cardRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    gsap.from(cardRef.current, {
+      opacity: 0,
+      x: -500,
+      duration: 1,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: cardRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
+
   return (
-    <article className="relative w-full max-w-[320px] sm:max-w-md md:max-w-xl lg:max-w-[690px]">
+    <article
+      ref={cardRef}
+      className="relative w-full max-w-[320px] sm:max-w-md md:max-w-xl lg:max-w-[690px]"
+    >
       <Image
         src={image}
         alt="image"
